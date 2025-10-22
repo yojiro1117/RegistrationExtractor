@@ -1,0 +1,12 @@
+streamlit
+pdfminer.six
+pymupdf
+PyPDF2
+openpyxl
+pillow
+pytesseract
+cryptography
+cffi
+setuptools
+packaging
+reportlab
