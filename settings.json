@@ -1,0 +1,5 @@
+{
+  "enable_ocr": false,
+  "workers": 4,
+  "output_sheet_name": "所有者一覧(最新_一括)"
+}
