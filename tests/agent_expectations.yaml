@@ -1,0 +1,31 @@
+# Golden comparison rules for the CI agent.
+#
+# This YAML defines how the agent should compare extracted results with
+# ground-truth expected data. It provides configuration for allowed
+# discrepancies, fields to ignore entirely, and normalisation options.
+# The agent will parse this file to tune its scoring and matching logic.
+
+# Keys under `ignore_fields` will not be considered when computing match
+# scores. Use this for free-text fields that may legitimately vary, such as
+# notes or remarks.
+ignore_fields:
+  - 備考_甲区
+  - 備考_乙区
+  - 備考_法人
+
+# Numeric tolerance for floating point comparisons (e.g. shares). Values
+# within this epsilon will be considered equal.
+float_tolerance: 0.0001
+
+# Date normalisation settings. If true, the agent will attempt to
+# normalise dates to YYYY-MM-DD before comparison.
+normalise_dates: true
+
+# Overall match threshold. If the agent's computed match rate falls below
+# this value, it will attempt self-healing. This should align with the
+# success criteria specified in the CI pipeline.
+match_threshold: 0.995
+
+# Maximum number of self-healing iterations allowed. After this many
+# attempts, the agent will give up and report failure.
+max_iterations: 5
